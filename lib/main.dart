@@ -2,6 +2,7 @@ import 'package:arcadia_app/models/colors.dart';
 import 'package:arcadia_app/providers/deafult_provider.dart';
 import 'package:arcadia_app/screens/endsession_screen.dart';
 import 'package:arcadia_app/screens/home_screen.dart';
+import 'package:arcadia_app/screens/study_room.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Arcadia',
         theme: ThemeData(fontFamily: 'Roboto', hintColor: backgroundPrimary),
-        home: endSession(),
+        home: StudyRoom(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
           Navigation.routeName: (context) => Navigation(),
