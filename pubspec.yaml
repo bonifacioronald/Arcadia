@@ -43,8 +43,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
-  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -65,7 +63,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    
     - lib/assets/images/pohon.png
     - lib/assets/images/capy.png
     - lib/assets/images/dog.png
@@ -73,6 +70,10 @@ flutter:
     - lib/assets/images/ayam.png
     - lib/assets/images/inu.png
     - lib/assets/images/coins.png
+    - lib/assets/images/shelter.png
+    - lib/assets/images/village1.jpeg
+    - lib/assets/images/village2.jpeg
+    - lib/assets/images/village3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -89,11 +90,11 @@ flutter:
   
     
   fonts:
-    - family: Roboto
+    - family: Poppins
       fonts:
-        - asset: lib/assets/fonts/Roboto-Regular.ttf
-        - asset: lib/assets/fonts/Roboto-Bold.ttf
-          weight: 900
+        - asset: lib/assets/fonts/Poppins-Regular.ttf
+        - asset: lib/assets/fonts/Poppins-Bold.ttf
+          weight: 700
   # fonts:
   #   - family: Schyler
   #     fonts:
