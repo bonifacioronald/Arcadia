@@ -1,6 +1,9 @@
 import 'package:arcadia_app/models/colors.dart';
+import 'package:arcadia_app/providers/deafult_provider.dart';
 import 'package:arcadia_app/widget/Camera_card.dart';
+import 'package:arcadia_app/widget/loading_screen.dart';
 import 'package:camera/camera.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class StudyRoomScreens extends StatefulWidget {
@@ -13,7 +16,7 @@ class StudyRoomScreens extends StatefulWidget {
 class _StudyRoomScreensState extends State<StudyRoomScreens> {
   Widget VideoRow() {
     return Container(
-        color: Colors.amber,
+        color: primary,
         width: double.infinity,
         height: 250,
         child: Row(
@@ -36,42 +39,6 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
         ));
   }
 
-  // late List<CameraDescription> cameras;
-  // late CameraController cameraController;
-
-  // int direction = 0;
-
-  // @override
-  // void initState() {
-  //   startCamera(direction);
-  //   super.initState();
-  // }
-
-  // void startCamera(int direction) async {
-  //   cameras = await availableCameras();
-
-  //   cameraController = CameraController(
-  //     cameras[direction],
-  //     ResolutionPreset.high,
-  //     enableAudio: false,
-  //   );
-
-  //   await cameraController.initialize().then((value) {
-  //     if (!mounted) {
-  //       return;
-  //     }
-  //     setState(() {}); //To refresh widget
-  //   }).catchError((e) {
-  //     print(e);
-  //   });
-  // }
-
-  // @override
-  // void dispose() {
-  //   cameraController.dispose();
-  //   super.dispose();
-  // }
-
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: backgroundPrimary,
@@ -82,15 +49,13 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
             CameraCard(),
             //first layer camera
             Container(
-              height: double.infinity,
-              width: double.infinity,
-              padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
               child: Column(
                 children: [
                   Container(
+                      height: MediaQuery.of(context).padding.top + 10,
+                      color: primary),
+                  Container(
                     padding: EdgeInsets.only(left: 20),
-                    width: double.infinity,
-                    height: double.infinity,
                     color: primary,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,

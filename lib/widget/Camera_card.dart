@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:arcadia_app/models/colors.dart';
+import 'package:arcadia_app/providers/deafult_provider.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CameraCard extends StatefulWidget {
   const CameraCard({super.key});
@@ -14,27 +16,6 @@ class CameraCard extends StatefulWidget {
 Timer? cameraTimer;
 
 class _CameraCardState extends State<CameraCard> {
-  Widget VideoRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), color: Colors.black),
-          width: 182,
-          height: 222,
-        ),
-        SizedBox(width: 9),
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), color: Colors.black),
-          width: 182,
-          height: 222,
-        )
-      ],
-    );
-  }
-
   late List<CameraDescription> cameras;
   late CameraController cameraController;
 
@@ -50,11 +31,13 @@ class _CameraCardState extends State<CameraCard> {
     cameras = await availableCameras();
 
     cameraController = CameraController(
-      cameras[1],
+      cameras[0],
       ResolutionPreset.high,
       enableAudio: false,
     );
     await cameraController.initialize().then((value) {
+      Provider.of<DefaultProvider>(context, listen: false)
+          .toggleStudyScreenLoading();
       if (!mounted) {
         return;
       }
