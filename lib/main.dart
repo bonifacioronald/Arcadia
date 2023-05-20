@@ -5,9 +5,8 @@ import 'package:arcadia_app/screens/home_screen.dart';
 import 'package:arcadia_app/screens/study_room.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'models/colors.dart' as custom_colors;
 import 'package:firebase_core/firebase_core.dart';
-
-import 'navigation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,11 +29,13 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Arcadia',
-        theme: ThemeData(fontFamily: 'Roboto', hintColor: backgroundPrimary),
-        home: StudyRoom(),
+
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            accentColor: custom_colors.primary, fontFamily: 'Poppins'),
+        home: HomeScreen(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
-          Navigation.routeName: (context) => Navigation(),
         },
       ),
     );
