@@ -2,7 +2,7 @@ import 'package:arcadia_app/models/colors.dart';
 import 'package:arcadia_app/providers/deafult_provider.dart';
 import 'package:arcadia_app/screens/endsession_screen.dart';
 import 'package:arcadia_app/screens/home_screen.dart';
-import 'package:arcadia_app/screens/storeScreen.dart';
+import 'package:arcadia_app/screens/market_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         title: 'Arcadia',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: HomeScreen(),
+        home: StoreScreen(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
         },
