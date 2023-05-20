@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
           HomeScreen.routeName: (context) => HomeScreen(),
           ShelterScreen.routeName: (context) => ShelterScreen(),
           MarketScreen.routeName: (context) => MarketScreen(),
+          VillageScreen.routeName: (context) => VillageScreen()
         },
       ),
     );

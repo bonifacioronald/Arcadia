@@ -1,3 +1,4 @@
+import 'package:arcadia_app/screens/village_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/colors.dart' as custom_colors;
 
@@ -20,7 +21,8 @@ class SessionCard extends StatelessWidget {
   void _displaySessionOptions(BuildContext ctx) {
     showModalBottomSheet(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),
       backgroundColor: Colors.white,
       context: ctx,
@@ -83,22 +85,27 @@ class SessionCard extends StatelessWidget {
                 SizedBox(
                   height: 12,
                 ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.roofing_rounded,
-                      size: 32,
-                      color: custom_colors.backgroundPrimary,
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'View village progress',
-                      style: TextStyle(
-                          fontSize: 16, color: custom_colors.backgroundPrimary),
-                    )
-                  ],
+                GestureDetector(
+                  onTap: () => Navigator.of(ctx)
+                      .pushNamed(VillageScreen.routeName, arguments: title),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.roofing_rounded,
+                        size: 32,
+                        color: custom_colors.backgroundPrimary,
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        'View village progress',
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: custom_colors.backgroundPrimary),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
