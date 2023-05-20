@@ -11,6 +11,7 @@ class ShelterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       key: _key,
       drawer: AppDrawerCustom(),
       body: Container(
@@ -22,16 +23,18 @@ class ShelterScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  height: MediaQuery.of(context).padding.top,
+                  color: Colors.white,
+                ),
+                Container(
+                  padding: EdgeInsets.all(20),
                   width: double.infinity,
-                  height: 70,
                   color: Colors.white,
                   child: Row(
                     children: [
                       Expanded(
                         child: Container(
                           alignment: Alignment.centerLeft,
-                          // color: Colors.red,
                           child: GestureDetector(
                             child: Icon(
                               Icons.menu_rounded,
@@ -65,8 +68,6 @@ class ShelterScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                     color: backgroundPrimary,
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).padding.top),
                     child: InteractiveViewer(
                       constrained: false,
                       maxScale: 5,

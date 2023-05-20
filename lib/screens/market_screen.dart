@@ -1,26 +1,49 @@
-import 'package:arcadia_app/models/colors.dart';
 
+import '../widget/market_item.dart';
+import 'package:arcadia_app/models/colors.dart' as custom_colors;
+import 'package:arcadia_app/widget/app_drawer_custom.dart';
 import 'package:flutter/material.dart';
 import '../widget/market_item.dart';
 
-class StoreScreen extends StatelessWidget {
+class MarketScreen extends StatelessWidget {
+  static const routeName = '/market';
+  final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
+      drawer: AppDrawerCustom(),
       body: Container(
-        color: primary,
-        padding: EdgeInsets.only(top: 50),
-        child: Column(
-          children: [
-            Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
+        width: double.infinity,
+        height: double.infinity,
+        color: custom_colors.primary,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).padding.top,
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    GestureDetector(
+                      child: Icon(
+                        Icons.menu_rounded,
+                        size: 36,
+                        color: Colors.white,
+                      ),
+                      onTap: () => _key.currentState!.openDrawer(),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Text(
                       "Market",
                       style: TextStyle(
-                          fontSize: 32,
+                          fontSize: 24,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -40,49 +63,57 @@ class StoreScreen extends StatelessWidget {
                       scale: 16,
                     )
                   ],
-                )), // stop
-
-            Expanded(
-              child: Container(
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: Color(0XFFEFEFEF),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  width: double.infinity,
-                  child: Column(
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Color(0XFFEFEFEF),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
+                        category(
+                          catName: "Avatar",
+                          chosenColor: Color(0xFFBEBCDC),
+                        ),
+                        SizedBox(width: 36),
+                        category(
+                            catName: "Items", chosenColor: Color(0xFFBEBCDC)),
+                        SizedBox(width: 36),
+                        category(
+                            catName: "Pets", chosenColor: Color(0xFF8E93FB))
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            category(
-                              catName: "Avatar",
-                              chosenColor: Color(0xFFBEBCDC),
+                            items(
+                              itemName: "Corg de Corgi",
+                              coins: 20,
+                              image: 'lib/assets/images/dog.png',
                             ),
-                            SizedBox(width: 36),
-                            category(
-                                catName: "Items",
-                                chosenColor: Color(0xFFBEBCDC)),
-                            SizedBox(width: 36),
-                            category(
-                                catName: "Pets", chosenColor: Color(0xFF8E93FB))
+                            items(
+                              itemName: "Capybara",
+                              coins: 15,
+                              image: 'lib/assets/images/capy.png',
+                            ),
                           ],
                         ),
-                        Row(children: [
-                          items(
-                            itemName: "Corg de Corgi",
-                            coins: 15,
-                            image: 'lib/assets/images/dog.png',
-                          ),
-                          Spacer(),
-                          items(
-                            itemName: "Capybara",
-                            coins: 15,
-                            image: 'lib/assets/images/capy.png',
-                          ),
-                        ]),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Row(
                           children: [
                             items(
@@ -97,6 +128,9 @@ class StoreScreen extends StatelessWidget {
                             ),
                           ],
                         ),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Row(
                           children: [
                             items(
@@ -105,76 +139,19 @@ class StoreScreen extends StatelessWidget {
                                 image: 'lib/assets/images/ayam.png'),
                             Spacer(),
                             items(
-                              itemName: "Starcat",
-                              coins: 10,
-                              image: "lib/assets/images/kucing.png",
+                              itemName: "Cash",
+                              coins: 8,
+                              image: "lib/assets/images/inu.png",
                             ),
                           ],
                         )
-                      ])),
-            ),
-
-            // Expanded(
-            //   child: SingleChildScrollView(
-            // child: Container(
-            //   width: double.infinity,
-            //   color: Colors.amber,
-            //   child: Column(
-            //     children: [
-            //       Row(
-            //         children: [
-            // items(
-            //   itemName: "Corg de Corgi",
-            //   coins: 15,
-            //   image: 'lib/assets/images/dog.png',
-            // ),
-            //     SizedBox(width: 27),
-            //     items(
-            //       itemName: "Capybara",
-            //       coins: 15,
-            //       image: 'lib/assets/images/capy.png',
-            //     ),
-            //   ],
-            // ),
-            //           SizedBox(height: 23),
-            //           Row(
-            //             children: [
-            // items(
-            //   itemName: "Lemon Tree",
-            //   coins: 10,
-            //   image: 'lib/assets/images/pohon.png',
-            //               ),
-            //               SizedBox(width: 27),
-            //               items(
-            //                 itemName: "Shiba Inu",
-            //                 coins: 15,
-            //                 image: 'lib/assets/images/inu.png',
-            //               ),
-            //             ],
-            //           ),
-            //           SizedBox(height: 23),
-            //           Row(
-            //             children: [
-            //               items(
-            // itemName: "Starcat",
-            // coins: 10,
-            // image: "lib/assets/images/kucing.png",
-            //               ),
-            //               SizedBox(width: 27),
-            //               items(
-            // itemName: "KFC Chicken",
-            // coins: 15,
-            // image: 'lib/assets/images/ayam.png',
-            //               ),
-            //             ],
-            //           ),
-            //           SizedBox(height: 50),
-            //         ],
-            //       ),
-            //     ),
-            //   ),
-            // ),
-          ],
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

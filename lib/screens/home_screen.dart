@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).padding.top + 12,
+                      height: MediaQuery.of(context).padding.top,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -234,7 +234,7 @@ class HomeScreen extends StatelessWidget {
                         height: 32,
                       ),
                       Text(
-                        'Your Sessions',
+                        'Your Villages',
                         style: TextStyle(
                             fontSize: 20,
                             color: custom_colors.backgroundPrimary,
@@ -277,10 +277,26 @@ class HomeScreen extends StatelessWidget {
                                             width: 2,
                                             color: custom_colors.primary),
                                       ),
-                                      child: Icon(
-                                        Icons.add_circle_outline_rounded,
-                                        size: 40,
-                                        color: custom_colors.primary,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.add_circle_outline_rounded,
+                                            size: 40,
+                                            color: custom_colors.primary,
+                                          ),
+                                          SizedBox(
+                                            height: 4,
+                                          ),
+                                          Text(
+                                            'Create a new village',
+                                            style: TextStyle(
+                                                color: custom_colors.primary,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
                                       ))
                                   : Container()
                             ],
