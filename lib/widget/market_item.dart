@@ -32,8 +32,7 @@ class items extends StatelessWidget {
             children: [
               Text(
                 itemName,
-                style:
-                    TextStyle(color: primaryBlue, fontWeight: FontWeight.bold),
+                style: TextStyle(color: primary, fontWeight: FontWeight.bold),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

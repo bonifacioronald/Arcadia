@@ -1,13 +1,14 @@
 import 'package:arcadia_app/models/colors.dart';
+
 import 'package:flutter/material.dart';
-import '../widget/storeItems.dart';
+import '../widget/market_item.dart';
 
 class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: primaryBlue,
+        color: primary,
         padding: EdgeInsets.only(top: 50),
         child: Column(
           children: [
