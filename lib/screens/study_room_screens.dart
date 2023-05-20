@@ -23,18 +23,59 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: Colors.black),
-              width: 182,
-              height: 222,
-            ),
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(width: 4),
+                    color: Color(0xFFF1F0F8)),
+                width: 182,
+                height: 222,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Center(
+                        child: Container(
+                            width: 72,
+                            height: 72,
+                            decoration: BoxDecoration(
+                                color: Colors.white, shape: BoxShape.circle),
+                            child: Text('DE'))),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text('Dylan Eu',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700)),
+                    )
+                  ],
+                )),
             SizedBox(width: 9),
             Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: Colors.black),
-              width: 182,
-              height: 222,
-            )
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(width: 4),
+                    color: Color(0xFFF1F0F8)),
+                width: 182,
+                height: 222,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Center(
+                        child: Container(
+                      width: 72,
+                      height: 72,
+                      decoration: BoxDecoration(
+                          color: Colors.white, shape: BoxShape.circle),
+                      child: Text('RL'),
+                    )),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text('Rex Lim',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700)),
+                    )
+                  ],
+                )),
           ],
         ));
   }
@@ -64,27 +105,15 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
                         Container(
                           width: 76,
                           height: 76,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                             border: Border.all(width: 5),
                             shape: BoxShape.circle,
                           ),
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "47m",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17),
-                                ),
-                                Text(
-                                  "left",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                )
-                              ]), //cicle time left
+                          child: Text('47m\nleft',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          //cicle time left
                         ),
                         SizedBox(width: 20),
                         Column(
@@ -92,7 +121,7 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "My Main Group",
+                              "Utopia Village",
                               style: TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.bold,
@@ -115,28 +144,14 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
                     padding: EdgeInsets.all(20),
                     child: Align(
                         alignment: Alignment.bottomRight,
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Container(
-                                  height: 76,
-                                  width: 76,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white),
-                                  child: Icon(Icons.headphones,
-                                      color: Color(0xFF756FBF), size: 40)),
-                              SizedBox(height: 10),
-                              Container(
-                                  height: 76,
-                                  width: 76,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Color(0xFF756FBF)),
-                                  child: Icon(Icons.holiday_village,
-                                      color: Colors.white, size: 40))
-                            ])),
+                        child: Container(
+                            height: 76,
+                            width: 76,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xFF756FBF)),
+                            child: Icon(Icons.camera_alt,
+                                color: Colors.white, size: 40))),
                   ),
                 ],
               ),
