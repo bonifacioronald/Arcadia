@@ -8,6 +8,44 @@ class MarketScreen extends StatelessWidget {
   static const routeName = '/market';
   final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
 
+  Future<void> _showDonationDialog(BuildContext ctx) async {
+    return showDialog<void>(
+      context: ctx,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Thankyou For Your Kind Donation!',
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: custom_colors.primary),
+          ),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text(
+                    'We truly appreciate your intention to support ARCADIA\'s real-world clauses to provide shelter for refugees globally.'),
+                Text('\nThis feature will come soon.'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text(
+                'Understand',
+                style: TextStyle(color: custom_colors.primary),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,28 +121,31 @@ class MarketScreen extends StatelessWidget {
                             fit: BoxFit.cover),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              custom_colors.primary.withOpacity(0.4),
-                              custom_colors.primary.withOpacity(0.9),
-                            ],
+                      child: GestureDetector(
+                        onTap: () => _showDonationDialog(context),
+                        child: Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                custom_colors.primary.withOpacity(0.4),
+                                custom_colors.primary.withOpacity(0.9),
+                              ],
+                            ),
                           ),
-                        ),
-                        child: Text(
-                          'Build a\nReal Shelter!',
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 28),
+                          child: Text(
+                            'Build a\nReal Shelter!',
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 28),
+                          ),
                         ),
                       ),
                     ),
