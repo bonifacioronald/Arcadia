@@ -12,6 +12,11 @@ packages:
     dependency: transitive
     description:
       name: async
+      sha256: bfe67ef28df125b7dddcea62755991f807aa39a2492a23e1550161692950bbe0
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.10.0"
+
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.9.0"
@@ -33,6 +38,7 @@ packages:
     dependency: transitive
     description:
       name: characters
+
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
@@ -68,6 +74,11 @@ packages:
     dependency: transitive
     description:
       name: collection
+      sha256: cfc915e6923fe5ce6e153b0723c753045de46de1b4d63771530504004a45fae0
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.17.0"
+
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
@@ -132,6 +143,10 @@ packages:
     dependency: transitive
     description:
       name: js
+      sha256: "5528c2f391ededb7775ec1daa69e65a2d61276f7552de2b5f7b8d34ee9fd4ab7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.5"
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
@@ -146,6 +161,11 @@ packages:
     dependency: transitive
     description:
       name: matcher
+      sha256: "16db949ceee371e9b99d22f88fa3a73c4e59fd0afed0bd25fc336eb76c198b72"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.12.13"
+
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.12"
@@ -160,6 +180,9 @@ packages:
     dependency: transitive
     description:
       name: meta
+      sha256: "6c268b42ed578a53088d834796959e4a1814b5e9e164f147f580a386e5decf42"
+      url: "https://pub.dev"
+
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
@@ -174,6 +197,8 @@ packages:
     dependency: transitive
     description:
       name: path
+      sha256: db9d4f58c908a4ba5953fcee2ae317c94889433e5024c27ce74a37f94267945b
+      url: "https://pub.dev"
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
@@ -235,6 +260,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
+      sha256: ad540f65f92caa91bf21dfc8ffb8c589d6e4dc0c2267818b4cc2792857706206
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.16"
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.12"
