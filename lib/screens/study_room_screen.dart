@@ -1,10 +1,8 @@
 import 'package:arcadia_app/models/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-class StudyRoom extends StatelessWidget {
-  const StudyRoom({super.key});
+class StudyRoomScreen extends StatelessWidget {
+  const StudyRoomScreen({super.key});
 
   Widget VideoRow() {
     return Row(
@@ -40,7 +38,7 @@ class StudyRoom extends StatelessWidget {
                 padding: EdgeInsets.only(left: 20),
                 width: double.infinity,
                 height: 110,
-                color: primaryBlue,
+                color: primary,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
