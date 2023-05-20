@@ -45,22 +45,26 @@ class SessionCard extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.play_arrow_rounded,
-                      size: 32,
-                      color: custom_colors.backgroundPrimary,
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'Start a new session',
-                      style: TextStyle(
-                          fontSize: 16, color: custom_colors.backgroundPrimary),
-                    )
-                  ],
+                Container(
+                  color: Colors.white,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.play_arrow_rounded,
+                        size: 32,
+                        color: custom_colors.backgroundPrimary,
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        'Start a new session',
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: custom_colors.backgroundPrimary),
+                      )
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 12,
@@ -88,23 +92,26 @@ class SessionCard extends StatelessWidget {
                 GestureDetector(
                   onTap: () => Navigator.of(ctx)
                       .pushNamed(VillageScreen.routeName, arguments: title),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.roofing_rounded,
-                        size: 32,
-                        color: custom_colors.backgroundPrimary,
-                      ),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      Text(
-                        'View village progress',
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: custom_colors.backgroundPrimary),
-                      )
-                    ],
+                  child: Container(
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.roofing_rounded,
+                          size: 32,
+                          color: custom_colors.backgroundPrimary,
+                        ),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          'View village progress',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: custom_colors.backgroundPrimary),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
