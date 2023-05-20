@@ -4,6 +4,8 @@ import 'package:arcadia_app/screens/endsession_screen.dart';
 import 'package:arcadia_app/screens/home_screen.dart';
 import 'package:arcadia_app/screens/market_screen.dart';
 import 'package:arcadia_app/screens/shelter_screen.dart';
+import 'package:arcadia_app/screens/study_room_screen.dart';
+import 'package:arcadia_app/screens/study_room_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/colors.dart' as custom_colors;
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             accentColor: custom_colors.primary, fontFamily: 'Poppins'),
-        home: HomeScreen(),
+        home: StudyRoomScreens(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
           ShelterScreen.routeName: (context) => ShelterScreen(),
