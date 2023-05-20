@@ -31,6 +31,7 @@ class AppDrawerCustom extends StatelessWidget {
               GestureDetector(
                 child: Container(
                   padding: EdgeInsets.all(12.0),
+                  color: Colors.white,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,6 +60,7 @@ class AppDrawerCustom extends StatelessWidget {
                 onTap: (() =>
                     Navigator.of(context).pushNamed(MarketScreen.routeName)),
                 child: Container(
+                  color: Colors.white,
                   padding: EdgeInsets.all(12.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,6 +87,7 @@ class AppDrawerCustom extends StatelessWidget {
                 onTap: () =>
                     Navigator.of(context).pushNamed(ShelterScreen.routeName),
                 child: Container(
+                  color: Colors.white,
                   padding: EdgeInsets.all(12.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

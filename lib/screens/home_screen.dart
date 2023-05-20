@@ -99,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                             size: 32,
                             color: Colors.white,
                           ),
-                          onTap: () => _key.currentState!.openDrawer(),
+                          onTap: () {},
                         )
                       ],
                     ),
