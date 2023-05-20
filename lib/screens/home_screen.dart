@@ -1,14 +1,15 @@
 import 'package:arcadia_app/widget/live_room_card.dart';
 import 'package:arcadia_app/widget/session_card.dart';
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import '../models/user.dart';
 import '../models/colors.dart' as custom_colors;
+import '../widget/app_drawer_custom.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/home";
+  final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
 
-  User userDefaultData = User("Dylan Eu", 230, 23);
+  User userDefaultData = User("Serene W.", 230, 23);
 
   List<LiveRoomCard> liveRoomCardList = [
     LiveRoomCard(
@@ -37,12 +38,14 @@ class HomeScreen extends StatelessWidget {
     SessionCard(
         title: 'Utopia Village',
         imageUrl: 'lib/assets/images/village1.jpeg',
+        totalContributor: 4,
         color: custom_colors.secondary,
         timeElapsed: 132,
         totalMember: 4),
     SessionCard(
         title: 'Eden Village',
         imageUrl: 'lib/assets/images/village2.jpeg',
+        totalContributor: 5,
         color: custom_colors.secondary,
         timeElapsed: 52,
         totalMember: 3),
@@ -51,6 +54,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
+      drawer: AppDrawerCustom(),
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -60,14 +65,15 @@ class HomeScreen extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    custom_colors.primary.withOpacity(0.7),
-                    custom_colors.primary,
-                  ],
-                )),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      custom_colors.primary.withOpacity(0.7),
+                      custom_colors.primary,
+                    ],
+                  ),
+                ),
                 padding: EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,25 +85,26 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 52,
-                          height: 52,
-                          decoration: BoxDecoration(
-                              color: custom_colors.secondary,
-                              borderRadius: BorderRadius.circular(12)),
-                        ),
-                        IconButton(
-                          icon: Icon(
+                        GestureDetector(
+                          child: Icon(
                             Icons.menu_rounded,
                             size: 36,
+                            color: custom_colors.backgroundPrimary,
                           ),
-                          color: Colors.white,
-                          onPressed: () {},
+                          onTap: () => _key.currentState!.openDrawer(),
+                        ),
+                        GestureDetector(
+                          child: Icon(
+                            Icons.notifications_active_outlined,
+                            size: 32,
+                            color: Colors.white,
+                          ),
+                          onTap: () => _key.currentState!.openDrawer(),
                         )
                       ],
                     ),
                     SizedBox(
-                      height: 32,
+                      height: 20,
                     ),
                     Text(
                       'Hello,',
@@ -112,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 32,
+                      height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -248,6 +255,8 @@ class HomeScreen extends StatelessWidget {
                               SessionCard(
                                 title: sessionCardList[index].title,
                                 imageUrl: sessionCardList[index].imageUrl,
+                                totalContributor:
+                                    sessionCardList[index].totalContributor,
                                 color: sessionCardList[index].color,
                                 timeElapsed: sessionCardList[index].timeElapsed,
                                 totalMember: sessionCardList[index].totalMember,
