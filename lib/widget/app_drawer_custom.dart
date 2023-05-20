@@ -1,4 +1,5 @@
 import 'package:arcadia_app/screens/home_screen.dart';
+import 'package:arcadia_app/screens/market_screen.dart';
 import 'package:arcadia_app/screens/shelter_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/colors.dart' as custom_colors;
@@ -25,12 +26,13 @@ class AppDrawerCustom extends StatelessWidget {
                     fontSize: 24),
               ),
               SizedBox(
-                height: 40,
+                height: 28,
               ),
               GestureDetector(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                child: Container(
+                  padding: EdgeInsets.all(12.0),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -50,46 +52,40 @@ class AppDrawerCustom extends StatelessWidget {
                 onTap: (() =>
                     Navigator.of(context).pushNamed(HomeScreen.routeName)),
               ),
-              SizedBox(
-                height: 8,
-              ),
               Divider(
                 color: custom_colors.primary,
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Market',
-                      style: TextStyle(
-                        color: custom_colors.primary,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Icon(
-                      Icons.wallet_giftcard,
-                      color: custom_colors.primary,
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Divider(
-                color: custom_colors.primary,
-              ),
-              SizedBox(
-                height: 8,
               ),
               GestureDetector(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                onTap: (() =>
+                    Navigator.of(context).pushNamed(MarketScreen.routeName)),
+                child: Container(
+                  padding: EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Market',
+                        style: TextStyle(
+                          color: custom_colors.primary,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Icon(
+                        Icons.wallet_giftcard,
+                        color: custom_colors.primary,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Divider(
+                color: custom_colors.primary,
+              ),
+              GestureDetector(
+                onTap: () =>
+                    Navigator.of(context).pushNamed(ShelterScreen.routeName),
+                child: Container(
+                  padding: EdgeInsets.all(12.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -107,8 +103,6 @@ class AppDrawerCustom extends StatelessWidget {
                     ],
                   ),
                 ),
-                onTap: () =>
-                    Navigator.of(context).pushNamed(ShelterScreen.routeName),
               ),
               Spacer(),
               Padding(
@@ -131,7 +125,7 @@ class AppDrawerCustom extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 32,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.0),
