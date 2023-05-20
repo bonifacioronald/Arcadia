@@ -8,7 +8,7 @@ class endSession extends StatefulWidget {
   State<endSession> createState() => _endSessionState();
 }
 
-Widget leaderboardBar(double inputHeight, String text) {
+Widget leaderboardBar(double inputHeight, String text, String percentage) {
   return Column(children: [
     SizedBox(height: (273 - inputHeight)),
     Container(
@@ -28,14 +28,21 @@ Widget leaderboardBar(double inputHeight, String text) {
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
-                    fontWeight: FontWeight.w700))
+                    fontWeight: FontWeight.w700)),
+            SizedBox(height: 40),
+            Text('$percentage %',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold))
           ],
         ))
   ]);
 } //leaderboardBar
 
-Widget nameBar(String name) {
+Widget nameBar(String name, String percentage) {
   return Container(
+    padding: EdgeInsets.all(10),
     width: 370,
     height: 56,
     decoration: BoxDecoration(
@@ -43,12 +50,13 @@ Widget nameBar(String name) {
         color: Color(0XFFF8F8F8)),
     child: Row(
       children: [
-        Text('1. ',
-            style: TextStyle(
-                color: primaryBlue, fontSize: 16, fontWeight: FontWeight.w700)),
         Text(name,
             style: TextStyle(
-                color: primaryBlue, fontSize: 16, fontWeight: FontWeight.w700))
+                color: primaryBlue, fontSize: 16, fontWeight: FontWeight.w700)),
+        Spacer(),
+        Text('$percentage %',
+            style: TextStyle(
+                color: primaryBlue, fontSize: 16, fontWeight: FontWeight.w700)),
       ],
     ),
   );
@@ -77,13 +85,14 @@ class _endSessionState extends State<endSession> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  leaderboardBar(207, '2nd'),
-                  leaderboardBar(273, '1st'),
-                  leaderboardBar(159, '3rd'),
+                  leaderboardBar(207, '2nd', '87'),
+                  leaderboardBar(273, '1st', '30'),
+                  leaderboardBar(159, '3rd', '20'),
                 ],
               ),
               Expanded(
                   child: Container(
+                      padding: EdgeInsets.all(20),
                       width: double.infinity,
                       height: 50,
                       decoration: BoxDecoration(
@@ -92,13 +101,19 @@ class _endSessionState extends State<endSession> {
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20))),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text("Your Focus Score",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w700,
+                                  color: backgroundPrimary)),
+                          SizedBox(height: 10),
+                          nameBar('1. Rex Lim', '87'),
                           SizedBox(height: 20),
-                          nameBar('Rex Lim'),
+                          nameBar('2. Siu', '30'),
                           SizedBox(height: 20),
-                          nameBar('Siu'),
-                          SizedBox(height: 20),
-                          nameBar('Charlie')
+                          nameBar('3. Charlie', '20')
                         ],
                       )))
             ])));
