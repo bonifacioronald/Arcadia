@@ -1,9 +1,23 @@
 import 'package:arcadia_app/screens/home_screen.dart';
+import 'package:arcadia_app/screens/market_screen.dart';
 import 'package:arcadia_app/screens/shelter_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/colors.dart' as custom_colors;
 
 class AppDrawerCustom extends StatelessWidget {
+  final _prototypeSnackBar = SnackBar(
+    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    padding: EdgeInsets.all(20),
+    backgroundColor: Color(0xFF6fc276),
+    behavior: SnackBarBehavior.floating,
+    elevation: 40,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8))),
+    content: const Text(
+      'Hi, ARCADIA is currently still in a very-early development phase, thus this feature is not available yet.',
+      style: TextStyle(color: Colors.white, fontSize: 14),
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,12 +39,14 @@ class AppDrawerCustom extends StatelessWidget {
                     fontSize: 24),
               ),
               SizedBox(
-                height: 40,
+                height: 28,
               ),
               GestureDetector(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                child: Container(
+                  padding: EdgeInsets.all(12.0),
+                  color: Colors.white,
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -50,46 +66,42 @@ class AppDrawerCustom extends StatelessWidget {
                 onTap: (() =>
                     Navigator.of(context).pushNamed(HomeScreen.routeName)),
               ),
-              SizedBox(
-                height: 8,
-              ),
               Divider(
                 color: custom_colors.primary,
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Market',
-                      style: TextStyle(
-                        color: custom_colors.primary,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Icon(
-                      Icons.wallet_giftcard,
-                      color: custom_colors.primary,
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Divider(
-                color: custom_colors.primary,
-              ),
-              SizedBox(
-                height: 8,
               ),
               GestureDetector(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                onTap: (() =>
+                    Navigator.of(context).pushNamed(MarketScreen.routeName)),
+                child: Container(
+                  color: Colors.white,
+                  padding: EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Market',
+                        style: TextStyle(
+                          color: custom_colors.primary,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Icon(
+                        Icons.wallet_giftcard,
+                        color: custom_colors.primary,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Divider(
+                color: custom_colors.primary,
+              ),
+              GestureDetector(
+                onTap: () =>
+                    Navigator.of(context).pushNamed(ShelterScreen.routeName),
+                child: Container(
+                  color: Colors.white,
+                  padding: EdgeInsets.all(12.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -107,49 +119,55 @@ class AppDrawerCustom extends StatelessWidget {
                     ],
                   ),
                 ),
-                onTap: () =>
-                    Navigator.of(context).pushNamed(ShelterScreen.routeName),
               ),
               Spacer(),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Settings',
-                      style: TextStyle(
-                        color: custom_colors.primary,
-                        fontSize: 16,
+              GestureDetector(
+                onTap: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(_prototypeSnackBar),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Settings',
+                        style: TextStyle(
+                          color: custom_colors.primary,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    Icon(
-                      Icons.settings_outlined,
-                      color: custom_colors.primary,
-                    )
-                  ],
+                      Icon(
+                        Icons.settings_outlined,
+                        color: custom_colors.primary,
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 32,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Exit',
-                      style: TextStyle(
-                        color: custom_colors.primary,
-                        fontSize: 16,
+              GestureDetector(
+                onTap: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(_prototypeSnackBar),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Exit',
+                        style: TextStyle(
+                          color: custom_colors.primary,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    Icon(
-                      Icons.exit_to_app_outlined,
-                      color: custom_colors.primary,
-                    )
-                  ],
+                      Icon(
+                        Icons.exit_to_app_outlined,
+                        color: custom_colors.primary,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -159,11 +177,3 @@ class AppDrawerCustom extends StatelessWidget {
     );
   }
 }
-
-//home
-//market
-//own house
-
-//setting
-//logut
-

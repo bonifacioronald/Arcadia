@@ -1,14 +1,16 @@
 import 'package:arcadia_app/models/colors.dart';
 import 'package:arcadia_app/providers/deafult_provider.dart';
-import 'package:arcadia_app/screens/endsession_screen.dart';
+import 'package:arcadia_app/screens/end_session_screen.dart';
 import 'package:arcadia_app/screens/home_screen.dart';
 import 'package:arcadia_app/screens/market_screen.dart';
 import 'package:arcadia_app/screens/shelter_screen.dart';
 import 'package:arcadia_app/screens/study_room_screens.dart';
+import 'package:arcadia_app/screens/village_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/colors.dart' as custom_colors;
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,10 +36,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme:
             ThemeData(hintColor: custom_colors.primary, fontFamily: 'Poppins'),
-        home: StudyRoomScreens(),
+        home: HomeScreen(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
           ShelterScreen.routeName: (context) => ShelterScreen(),
+          MarketScreen.routeName: (context) => MarketScreen(),
+          VillageScreen.routeName: (context) => VillageScreen()
         },
       ),
     );

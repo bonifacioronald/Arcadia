@@ -1,3 +1,4 @@
+import 'package:arcadia_app/screens/village_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/colors.dart' as custom_colors;
 
@@ -17,10 +18,25 @@ class SessionCard extends StatelessWidget {
       required this.timeElapsed,
       required this.totalMember});
 
+  final _prototypeSnackBar = SnackBar(
+    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    padding: EdgeInsets.all(20),
+    backgroundColor: Color(0xFF6fc276),
+    behavior: SnackBarBehavior.floating,
+    elevation: 40,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8))),
+    content: const Text(
+      'Hi, ARCADIA is currently still in a very-early development phase, thus this feature is not available yet.',
+      style: TextStyle(color: Colors.white, fontSize: 14),
+    ),
+  );
+
   void _displaySessionOptions(BuildContext ctx) {
     showModalBottomSheet(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),
       backgroundColor: Colors.white,
       context: ctx,
@@ -43,62 +59,82 @@ class SessionCard extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.play_arrow_rounded,
-                      size: 32,
-                      color: custom_colors.backgroundPrimary,
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.play_arrow_rounded,
+                          size: 32,
+                          color: custom_colors.backgroundPrimary,
+                        ),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          'Start a new session',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: custom_colors.backgroundPrimary),
+                        )
+                      ],
                     ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'Start a new session',
-                      style: TextStyle(
-                          fontSize: 16, color: custom_colors.backgroundPrimary),
-                    )
-                  ],
+                  ),
                 ),
                 SizedBox(
                   height: 12,
                 ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.add_circle_outline_rounded,
-                      size: 32,
-                      color: custom_colors.backgroundPrimary,
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'Add new contributors',
-                      style: TextStyle(
-                          fontSize: 16, color: custom_colors.backgroundPrimary),
-                    )
-                  ],
+                GestureDetector(
+                  onTap: () => ScaffoldMessenger.of(ctx)
+                      .showSnackBar(_prototypeSnackBar),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.add_circle_outline_rounded,
+                        size: 32,
+                        color: custom_colors.backgroundPrimary,
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        'Add new contributors',
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: custom_colors.backgroundPrimary),
+                      )
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 12,
                 ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.roofing_rounded,
-                      size: 32,
-                      color: custom_colors.backgroundPrimary,
+                GestureDetector(
+                  onTap: () => Navigator.of(ctx)
+                      .pushNamed(VillageScreen.routeName, arguments: title),
+                  child: Container(
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.roofing_rounded,
+                          size: 32,
+                          color: custom_colors.backgroundPrimary,
+                        ),
+                        SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          'View village progress',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: custom_colors.backgroundPrimary),
+                        )
+                      ],
                     ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'View village progress',
-                      style: TextStyle(
-                          fontSize: 16, color: custom_colors.backgroundPrimary),
-                    )
-                  ],
+                  ),
                 )
               ],
             ),

@@ -75,6 +75,7 @@ flutter:
     - lib/assets/images/village1.jpeg
     - lib/assets/images/village2.jpeg
     - lib/assets/images/village3.png
+    - lib/assets/images/donation.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
