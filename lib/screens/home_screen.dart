@@ -8,6 +8,19 @@ import '../widget/app_drawer_custom.dart';
 class HomeScreen extends StatelessWidget {
   static const routeName = "/home";
   final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
+  final _prototypeSnackBar = SnackBar(
+    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    padding: EdgeInsets.all(20),
+    backgroundColor: Color(0xFF6fc276),
+    behavior: SnackBarBehavior.floating,
+    elevation: 40,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8))),
+    content: const Text(
+      'Hi, ARCADIA is currently still in a very-early development phase, thus this feature is not available yet.',
+      style: TextStyle(color: Colors.white, fontSize: 14),
+    ),
+  );
 
   User userDefaultData = User("Serene W.", 230, 23);
 
@@ -99,7 +112,8 @@ class HomeScreen extends StatelessWidget {
                             size: 32,
                             color: Colors.white,
                           ),
-                          onTap: () {},
+                          onTap: () => ScaffoldMessenger.of(context)
+                              .showSnackBar(_prototypeSnackBar),
                         )
                       ],
                     ),
@@ -265,39 +279,47 @@ class HomeScreen extends StatelessWidget {
                                 width: 20,
                               ),
                               index == sessionCardList.length - 1
-                                  ? Container(
-                                      width: 280,
-                                      height: double.infinity,
-                                      decoration: BoxDecoration(
-                                        color: custom_colors.primary
-                                            .withOpacity(0.1),
-                                        borderRadius: BorderRadius.circular(20),
-                                        border: Border.all(
-                                            style: BorderStyle.solid,
-                                            width: 2,
-                                            color: custom_colors.primary),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.add_circle_outline_rounded,
-                                            size: 40,
-                                            color: custom_colors.primary,
+                                  ? GestureDetector(
+                                      onTap: () => ScaffoldMessenger.of(context)
+                                          .showSnackBar(_prototypeSnackBar),
+                                      child: Container(
+                                          width: 280,
+                                          height: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: custom_colors.primary
+                                                .withOpacity(0.1),
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            border: Border.all(
+                                                style: BorderStyle.solid,
+                                                width: 2,
+                                                color: custom_colors.primary),
                                           ),
-                                          SizedBox(
-                                            height: 4,
-                                          ),
-                                          Text(
-                                            'Create a new village',
-                                            style: TextStyle(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons
+                                                    .add_circle_outline_rounded,
+                                                size: 40,
                                                 color: custom_colors.primary,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold),
-                                          )
-                                        ],
-                                      ))
+                                              ),
+                                              SizedBox(
+                                                height: 4,
+                                              ),
+                                              Text(
+                                                'Create a new village',
+                                                style: TextStyle(
+                                                    color:
+                                                        custom_colors.primary,
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              )
+                                            ],
+                                          )),
+                                    )
                                   : Container()
                             ],
                           ),

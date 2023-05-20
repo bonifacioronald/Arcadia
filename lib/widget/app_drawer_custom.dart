@@ -5,6 +5,19 @@ import 'package:flutter/material.dart';
 import '../models/colors.dart' as custom_colors;
 
 class AppDrawerCustom extends StatelessWidget {
+  final _prototypeSnackBar = SnackBar(
+    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    padding: EdgeInsets.all(20),
+    backgroundColor: Color(0xFF6fc276),
+    behavior: SnackBarBehavior.floating,
+    elevation: 40,
+    shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8))),
+    content: const Text(
+      'Hi, ARCADIA is currently still in a very-early development phase, thus this feature is not available yet.',
+      style: TextStyle(color: Colors.white, fontSize: 14),
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -108,45 +121,53 @@ class AppDrawerCustom extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Settings',
-                      style: TextStyle(
-                        color: custom_colors.primary,
-                        fontSize: 16,
+              GestureDetector(
+                onTap: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(_prototypeSnackBar),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Settings',
+                        style: TextStyle(
+                          color: custom_colors.primary,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    Icon(
-                      Icons.settings_outlined,
-                      color: custom_colors.primary,
-                    )
-                  ],
+                      Icon(
+                        Icons.settings_outlined,
+                        color: custom_colors.primary,
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
                 height: 32,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Exit',
-                      style: TextStyle(
-                        color: custom_colors.primary,
-                        fontSize: 16,
+              GestureDetector(
+                onTap: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(_prototypeSnackBar),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Exit',
+                        style: TextStyle(
+                          color: custom_colors.primary,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    Icon(
-                      Icons.exit_to_app_outlined,
-                      color: custom_colors.primary,
-                    )
-                  ],
+                      Icon(
+                        Icons.exit_to_app_outlined,
+                        color: custom_colors.primary,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -156,11 +177,3 @@ class AppDrawerCustom extends StatelessWidget {
     );
   }
 }
-
-//home
-//market
-//own house
-
-//setting
-//logut
-
