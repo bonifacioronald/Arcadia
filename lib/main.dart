@@ -4,6 +4,7 @@ import 'package:arcadia_app/screens/endsession_screen.dart';
 import 'package:arcadia_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'models/colors.dart' as custom_colors;
 import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Arcadia',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(),
+        theme: ThemeData(
+            accentColor: custom_colors.primary, fontFamily: 'Poppins'),
         home: HomeScreen(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
