@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'navigation.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -27,11 +25,11 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Arcadia',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: Navigation(),
+        home: HomeScreen(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
-          Navigation.routeName: (context) => Navigation(),
         },
       ),
     );
