@@ -4,6 +4,7 @@ import 'package:arcadia_app/screens/end_session_screen.dart';
 import 'package:arcadia_app/screens/home_screen.dart';
 import 'package:arcadia_app/screens/market_screen.dart';
 import 'package:arcadia_app/screens/shelter_screen.dart';
+import 'package:arcadia_app/screens/study_room_screens.dart';
 import 'package:arcadia_app/screens/village_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme:
             ThemeData(hintColor: custom_colors.primary, fontFamily: 'Poppins'),
-        home: VillageScreen(),
+        home: HomeScreen(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
           ShelterScreen.routeName: (context) => ShelterScreen(),
