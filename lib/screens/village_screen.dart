@@ -5,11 +5,13 @@ import '../models/colors.dart' as custom_colors;
 import '../widget/app_drawer_custom.dart';
 
 class VillageScreen extends StatelessWidget {
-  static const routeName = '/shelter';
+  static const routeName = '/village';
   final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
 
   @override
   Widget build(BuildContext context) {
+    String title = 'Eden Village';
+    //String title = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       key: _key,
       drawer: AppDrawerCustom(),
@@ -22,6 +24,10 @@ class VillageScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
+                  height: MediaQuery.of(context).padding.top,
+                  color: Colors.white,
+                ),
+                Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   width: double.infinity,
                   height: 70,
@@ -31,7 +37,6 @@ class VillageScreen extends StatelessWidget {
                       Expanded(
                         child: Container(
                           alignment: Alignment.centerLeft,
-                          // color: Colors.red,
                           child: GestureDetector(
                             child: Icon(
                               Icons.menu_rounded,
@@ -47,7 +52,7 @@ class VillageScreen extends StatelessWidget {
                         child: Container(
                           alignment: Alignment.center,
                           child: Text(
-                            'Serene\'s Shelter',
+                            title,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: custom_colors.primary,
@@ -65,8 +70,6 @@ class VillageScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                     color: backgroundPrimary,
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).padding.top),
                     child: InteractiveViewer(
                       constrained: false,
                       maxScale: 5,
