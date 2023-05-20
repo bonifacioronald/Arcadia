@@ -1,3 +1,5 @@
+
+import '../widget/market_item.dart';
 import 'package:arcadia_app/models/colors.dart' as custom_colors;
 import 'package:arcadia_app/widget/app_drawer_custom.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ class MarketScreen extends StatelessWidget {
       key: _key,
       drawer: AppDrawerCustom(),
       body: Container(
+
         width: double.infinity,
         height: double.infinity,
         color: custom_colors.primary,

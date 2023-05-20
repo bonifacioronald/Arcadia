@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import '../models/colors.dart' as custom_colors;
 import '../widget/app_drawer_custom.dart';
 
-class ShelterScreen extends StatelessWidget {
+class VillageScreen extends StatelessWidget {
   static const routeName = '/shelter';
   final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       key: _key,
       drawer: AppDrawerCustom(),
       body: Container(
@@ -23,18 +22,16 @@ class ShelterScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: MediaQuery.of(context).padding.top,
-                  color: Colors.white,
-                ),
-                Container(
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.symmetric(horizontal: 20),
                   width: double.infinity,
+                  height: 70,
                   color: Colors.white,
                   child: Row(
                     children: [
                       Expanded(
                         child: Container(
                           alignment: Alignment.centerLeft,
+                          // color: Colors.red,
                           child: GestureDetector(
                             child: Icon(
                               Icons.menu_rounded,
@@ -68,6 +65,8 @@ class ShelterScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                     color: backgroundPrimary,
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).padding.top),
                     child: InteractiveViewer(
                       constrained: false,
                       maxScale: 5,
@@ -75,7 +74,7 @@ class ShelterScreen extends StatelessWidget {
                       panEnabled: true,
                       boundaryMargin: EdgeInsets.all(0),
                       child: Image.asset(
-                        'lib/assets/images/shelter.png',
+                        'lib/assets/images/village3.png',
                         fit: BoxFit.none,
                       ),
                     ),
@@ -90,7 +89,7 @@ class ShelterScreen extends StatelessWidget {
                 height: 220,
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                    color: custom_colors.backgroundPrimary,
+                    color: Color(0xFFEFEFEF),
                     boxShadow: [
                       BoxShadow(
                         color: custom_colors.primary.withOpacity(0.5),
@@ -105,10 +104,10 @@ class ShelterScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("Week Summary",
+                    Text("Group Summary",
                         style: TextStyle(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: backgroundPrimary,
                             fontWeight: FontWeight.bold)),
                     SizedBox(
                       height: 8,
@@ -117,22 +116,12 @@ class ShelterScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          houseScreenPersonalStatButton('Time\nSpent', '50m',
-                              Colors.white, primary, Colors.white),
-                          houseScreenPersonalStatButton(
-                            'Focus\nTime',
-                            '38m',
-                            Colors.white,
-                            primary,
-                            Colors.white,
-                          ),
-                          houseScreenPersonalStatButton(
-                            'Points\nGained',
-                            '1200',
-                            Colors.white,
-                            primary,
-                            Colors.white,
-                          ),
+                          houseScreenPersonalStatButton('Time\nSpent', '40m',
+                              primary, Colors.white, primary),
+                          houseScreenPersonalStatButton('Productivity\nRate',
+                              '87%', primary, Colors.white, primary),
+                          houseScreenPersonalStatButton('Village\nGrowth', '4%',
+                              primary, Colors.white, primary),
                         ],
                       ),
                     )

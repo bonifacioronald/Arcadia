@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 class houseScreenPersonalStatButton extends StatelessWidget {
   String description;
   String stat;
-  houseScreenPersonalStatButton(this.description, this.stat);
+  Color circlecolor;
+  Color statcolor;
+  Color textcolor;
+  houseScreenPersonalStatButton(this.description, this.stat, this.circlecolor,
+      this.statcolor, this.textcolor);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,13 +25,13 @@ class houseScreenPersonalStatButton extends StatelessWidget {
             height: 68,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white,
+              color: circlecolor,
             ),
             child: Center(
               child: Text(
                 stat,
                 style: TextStyle(
-                    color: custom_colors.primary,
+                    color: statcolor,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
@@ -38,7 +42,7 @@ class houseScreenPersonalStatButton extends StatelessWidget {
             description,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color: textcolor,
               fontSize: 14,
             ),
           ),
