@@ -1,6 +1,7 @@
 import 'package:arcadia_app/screens/village_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/colors.dart' as custom_colors;
+import '../screens/study_room_screens.dart';
 
 class SessionCard extends StatelessWidget {
   String title;
@@ -60,7 +61,8 @@ class SessionCard extends StatelessWidget {
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () =>
+                      Navigator.of(ctx).pushNamed(StudyRoomScreens.routeName),
                   child: Container(
                     color: Colors.white,
                     child: Row(
