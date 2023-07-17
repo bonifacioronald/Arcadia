@@ -1,5 +1,6 @@
 import 'package:arcadia_app/models/colors.dart';
 import 'package:arcadia_app/providers/deafult_provider.dart';
+import 'package:arcadia_app/screens/facial_recognition_screen.dart';
 import 'package:arcadia_app/widget/Camera_card.dart';
 import 'package:arcadia_app/widget/loading_screen.dart';
 import 'package:camera/camera.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 
 class StudyRoomScreens extends StatefulWidget {
   const StudyRoomScreens({super.key});
+  static const routeName = '/studyroom';
 
   @override
   State<StudyRoomScreens> createState() => _StudyRoomScreensState();
@@ -38,8 +40,15 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
                             width: 72,
                             height: 72,
                             decoration: BoxDecoration(
-                                color: Colors.white, shape: BoxShape.circle),
-                            child: Text('DE'))),
+                                color: primary.withOpacity(0.6),
+                                shape: BoxShape.circle),
+                            child: Center(
+                                child: Text(
+                              'DE',
+                              style: TextStyle(
+                                fontSize: 24,
+                              ),
+                            )))),
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Text('Dylan Eu',
@@ -65,8 +74,16 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
                       width: 72,
                       height: 72,
                       decoration: BoxDecoration(
-                          color: Colors.white, shape: BoxShape.circle),
-                      child: Text('RL'),
+                          color: primary.withOpacity(0.6),
+                          shape: BoxShape.circle),
+                      child: Center(
+                        child: Text(
+                          'RL',
+                          style: TextStyle(
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
                     )),
                     Align(
                       alignment: Alignment.bottomLeft,
@@ -121,7 +138,7 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Utopia Village",
+                              "My Village",
                               style: TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.bold,
@@ -144,14 +161,18 @@ class _StudyRoomScreensState extends State<StudyRoomScreens> {
                     padding: EdgeInsets.all(20),
                     child: Align(
                         alignment: Alignment.bottomRight,
-                        child: Container(
-                            height: 76,
-                            width: 76,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xFF756FBF)),
-                            child: Icon(Icons.camera_alt,
-                                color: Colors.white, size: 40))),
+                        child: GestureDetector(
+                          onTap: () => Navigator.of(context)
+                              .pushNamed(FacialRecognitionScreens.routeName),
+                          child: Container(
+                              height: 76,
+                              width: 76,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xFF756FBF)),
+                              child: Icon(Icons.camera_alt,
+                                  color: Colors.white, size: 40)),
+                        )),
                   ),
                 ],
               ),
