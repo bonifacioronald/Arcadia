@@ -47,7 +47,8 @@ The Arcadia app is built using Flutter for the front-end development. The follow
 
 
 ## Screenshots
-![Untitled (2920 × 1080 px) (1)](https://github.com/bonifacioronald/Arcadia/assets/76140889/030ddc22-d4de-4f1a-982d-4988370521d9)
+![Arcadia-overview-photo](https://github.com/bonifacioronald/Arcadia/assets/76140889/f0e37003-86fe-4188-b310-d97ead0112b4)
+
 
 ## Contributors
 
