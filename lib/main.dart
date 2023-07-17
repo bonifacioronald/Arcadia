@@ -10,18 +10,16 @@ import 'package:arcadia_app/screens/village_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/colors.dart' as custom_colors;
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
 
-  runApp(MyApp());
+  runApp(const MainApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends StatelessWidget {
+  const MainApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme:
             ThemeData(hintColor: custom_colors.primary, fontFamily: 'Poppins'),
-        home: VillageScreen(),
+        home: EndSessionScreen(),
         routes: {
           HomeScreen.routeName: (context) => HomeScreen(),
           ShelterScreen.routeName: (context) => ShelterScreen(),
@@ -45,7 +43,8 @@ class MyApp extends StatelessWidget {
           VillageScreen.routeName: (context) => VillageScreen(),
           StudyRoomScreens.routeName: (context) => StudyRoomScreens(),
           FacialRecognitionScreens.routeName: (context) =>
-              FacialRecognitionScreens()
+              FacialRecognitionScreens(),
+          EndSessionScreen.routeName: (context) => EndSessionScreen()
         },
       ),
     );

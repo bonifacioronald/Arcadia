@@ -151,10 +151,11 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'Total Focused Time',
                               style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
+                                  TextStyle(fontSize: 15, color: Colors.white),
                             ),
                           ],
                         ),
+                        // Expanded(child: SizedBox()),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -168,7 +169,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'Successful Sessions',
                               style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
+                                  TextStyle(fontSize: 15, color: Colors.white),
                             ),
                           ],
                         )
